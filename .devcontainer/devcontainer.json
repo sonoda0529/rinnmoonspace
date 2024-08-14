@@ -1,0 +1,28 @@
+{
+    "name": "Deno Dev Environment",
+    "dockerFile": "Dockerfile",
+
+    "settings": {
+        "deno.enable": true,
+        "deno.unstable": false,
+        "deno.lint": true,
+        "javascript.validate.enable": false
+    },
+
+    "extensions": [
+        "denoland.vscode-deno"
+    ],
+
+    "forwardPorts": [8000],
+
+    "postCreateCommand": "deno --version",
+
+    "remoteUser": "vscode",
+
+    "workspaceFolder": "/workspace",
+
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ]
+}
+

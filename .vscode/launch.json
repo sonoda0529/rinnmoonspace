@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run index.js in Docker",
+      "type": "pwa-node",
+      "request": "launch",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": [
+        "run",
+        "--rm",
+        "-v",
+        "${workspaceFolder}:/workspace", // 로컬 디렉토리를 컨테이너에 마운트
+        "-w",
+        "/workspace", // 작업 디렉토리를 /workspace로 설정
+        "deno:runtime", // Deno 최신 이미지 사용
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "preLaunchTask": "Build Deno Docker Container"
+    }
+  ]
+}
